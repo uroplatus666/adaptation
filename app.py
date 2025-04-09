@@ -148,7 +148,7 @@ with st.container():
             data = data.sort_values(by='Количество', ascending=False)
 
             # Отображаем таблицу в Streamlit
-            st.table(data)
+            st.dataframe(data, hide_index = True)
         else:
             st.write("Выбранный ключ отсутствует в словаре.")
 st.write('---')
@@ -160,9 +160,9 @@ with st.container():
         ('Погибшие', 'Пострадавшие',
          'Материальный ущерб'))
     if category == 'Погибшие':
-        st.dataframe(dead_df)
+        st.dataframe(dead_df, hide_index = True)
     elif category == 'Пострадавшие':
-        st.dataframe(injured_df)
+        st.dataframe(injured_df, hide_index = True)
     elif category == 'Материальный ущерб':
-        st.dataframe(money_df)
+        st.dataframe(money_df, hide_index = True)
 st.write('---')
