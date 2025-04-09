@@ -1,5 +1,5 @@
-# База данных Опасные природные явления
+# База данных опасные природные явления
 #### 2018 - 2024 гг.
 
 
-[Посмотреть веб-приложение]([https://adaptation-bsvgjwiovzn6sm3afuq5co.streamlit.app/])
+[Посмотреть веб-приложение](https://adaptation-bsvgjwiovzn6sm3afuq5co.streamlit.app/)
