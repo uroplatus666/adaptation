@@ -172,6 +172,13 @@ with st.container():
     with col1:
         selected_key = 'наводнение'
         selected_key = st.selectbox("Выберите ОПЯ:", ph_sub_dict.keys())
+        if selected_key in ph_sub_dict:
+            # Создаем DataFrame
+            data = pd.DataFrame(list(ph_sub_dict[selected_key].items()), columns=["Субъект", "Количество"])
+            num = data['Количество'].sum()
+        else:
+            num = 0
+        st.write(f'Количество новостей: :red[{num}]')
         wordcloud = WordCloud(
             width=800,
             height=400,
@@ -191,12 +198,13 @@ with st.container():
         if selected_key in ph_sub_dict:
             # Создаем DataFrame
             data = pd.DataFrame(list(ph_sub_dict[selected_key].items()), columns=["Субъект", "Количество"])
-
+            num = data['Количество'].sum()
 
             # Сортируем по убыванию по колонке 'Количество'
             data = data.sort_values(by='Количество', ascending=False)
 
             # Отображаем таблицу в Streamlit
+            
             st.dataframe(data, hide_index = True)
         else:
             st.write("Выбранный ключ отсутствует в словаре.")
