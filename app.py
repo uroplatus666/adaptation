@@ -80,7 +80,7 @@ def load_model_9(model_name_8):
     ph_sub_dict = pickle.load(BytesIO(response.content))
     return ph_sub_dict
 
-sub_ph_dict = load_model_8('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/ph_sub_dict.pkl')
+ph_sub_dict = load_model_8('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/ph_sub_dict.pkl')
 
 st.header('***:blue[База данных Опасные природные явления]***',anchor='center')
 st.subheader('***:gray[Россия]  2018 - 2024***')
