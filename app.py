@@ -190,7 +190,7 @@ with st.container():
     with col2:
         if selected_key in ph_sub_dict:
             # Создаем DataFrame
-            data = pd.DataFrame(list(sub_ph_dict[selected_key].items()), columns=["Субъект", "Количество"])
+            data = pd.DataFrame(list(ph_sub_dict[selected_key].items()), columns=["Субъект", "Количество"])
 
 
             # Сортируем по убыванию по колонке 'Количество'
