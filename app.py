@@ -15,7 +15,7 @@ def load_model_1(model_name_1):
     dead_df = pd.read_csv(model_name_1)
     return (dead_df)
 
-dead_df = load_model_1('https://raw.githubusercontent.com/uroplatus666/adaptation/master/dead_df.csv')
+dead_df = load_model_1('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/dead_df.csv')
 
 
 @st.cache_resource()
@@ -24,7 +24,7 @@ def load_model_2(model_name_2):
     return (injured_df)
 
 
-injured_df = load_model_2('https://raw.githubusercontent.com/uroplatus666/adaptation/master/injured_df.csv')
+injured_df = load_model_2('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/injured_df.csv')
 
 @st.cache_resource()
 def load_model_3(model_name_3):
@@ -32,7 +32,7 @@ def load_model_3(model_name_3):
     return (money_df)
 
 
-money_df = load_model_3('https://raw.githubusercontent.com/uroplatus666/adaptation/master/money_df.csv')
+money_df = load_model_3('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/money_df.csv')
 
 @st.cache_resource()
 def load_model_4(model_name_4):
@@ -40,7 +40,7 @@ def load_model_4(model_name_4):
     return (phenomena_df)
 
 
-phenomena_df = load_model_4('https://raw.githubusercontent.com/uroplatus666/adaptation/master/phenomena_df.csv')
+phenomena_df = load_model_4('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/phenomena_df.csv')
 
 @st.cache_resource()
 def load_model_5(model_name_5):
@@ -48,7 +48,7 @@ def load_model_5(model_name_5):
     return (sub_df)
 
 
-sub_df = load_model_5('https://raw.githubusercontent.com/uroplatus666/adaptation/master/sub_df.csv')
+sub_df = load_model_5('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/sub_df.csv')
 
 @st.cache_resource()
 def load_model_6(model_name_6):
@@ -56,7 +56,7 @@ def load_model_6(model_name_6):
     return (loc_df)
 
 
-loc_df = load_model_6('https://raw.githubusercontent.com/uroplatus666/adaptation/master/loc_df.csv')
+loc_df = load_model_6('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/loc_df.csv')
 
 @st.cache_resource()
 def load_model_7(model_name_7):
@@ -68,7 +68,19 @@ def load_model_7(model_name_7):
     sub_ph_dict = pickle.load(BytesIO(response.content))
     return sub_ph_dict
 
-sub_ph_dict = load_model_7('https://raw.githubusercontent.com/uroplatus666/adaptation/master/sub_ph_dict.pkl')
+sub_ph_dict = load_model_7('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/sub_ph_dict.pkl')
+
+@st.cache_resource()
+def load_model_9(model_name_8):
+    # Загружаем файл по URL
+    response = requests.get(model_name_8)
+    response.raise_for_status()  # Проверка на ошибки запроса
+
+    # Загружаем данные из байтового потока
+    ph_sub_dict = pickle.load(BytesIO(response.content))
+    return ph_sub_dict
+
+sub_ph_dict = load_model_8('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/ph_sub_dict.pkl')
 
 st.header('***:blue[База данных Опасные природные явления]***',anchor='center')
 st.subheader('***:gray[Россия]  2018 - 2024***')
@@ -117,7 +129,7 @@ with st.container():
 st.write('---')
 
 with st.container():
-    st.subheader('***Опасные природные явления в разных субъектах России***',
+    st.subheader('***Опасные природные явления в выбранном субъекте РФ***',
                  divider='blue')
     col1, col2 = st.columns([7, 3])
     with col1:
@@ -142,6 +154,43 @@ with st.container():
         if selected_key in sub_ph_dict:
             # Создаем DataFrame
             data = pd.DataFrame(list(sub_ph_dict[selected_key].items()), columns=["ОПЯ", "Количество"])
+
+
+            # Сортируем по убыванию по колонке 'Количество'
+            data = data.sort_values(by='Количество', ascending=False)
+
+            # Отображаем таблицу в Streamlit
+            st.dataframe(data, hide_index = True)
+        else:
+            st.write("Выбранный ключ отсутствует в словаре.")
+st.write('---')
+
+with st.container():
+    st.subheader('***Субъекты РФ, в которых встречалось выбранное опасное природное явлени***',
+                 divider='blue')
+    col1, col2 = st.columns([7, 3])
+    with col1:
+        selected_key = 'наводнение'
+        selected_key = st.selectbox("Выберите ОПЯ:", ph_sub_dict.keys())
+        wordcloud = WordCloud(
+            width=800,
+            height=400,
+            colormap='BrBG',
+            background_color='black',
+            min_font_size=2,
+            max_font_size=70
+        ).generate_from_frequencies(ph_sub_dict[selected_key])
+
+        # Создание фигуры и отображение облака слов
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.imshow(wordcloud, interpolation='bilinear')
+        ax.axis('off')
+
+        st.pyplot(fig)
+    with col2:
+        if selected_key in ph_sub_dict:
+            # Создаем DataFrame
+            data = pd.DataFrame(list(sub_ph_dict[selected_key].items()), columns=["Субъект", "Количество"])
 
 
             # Сортируем по убыванию по колонке 'Количество'
