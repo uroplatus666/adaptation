@@ -71,7 +71,7 @@ def load_model_7(model_name_7):
 sub_ph_dict = load_model_7('https://raw.githubusercontent.com/uroplatus666/adaptation/master/data/sub_ph_dict.pkl')
 
 @st.cache_resource()
-def load_model_9(model_name_8):
+def load_model_8(model_name_8):
     # Загружаем файл по URL
     response = requests.get(model_name_8)
     response.raise_for_status()  # Проверка на ошибки запроса
