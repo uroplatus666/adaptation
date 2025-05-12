@@ -7,7 +7,10 @@
 __________________________________________________
 ### 1. Обработка базы, визуализация атрибутов
 [base_process](analysis/base_process.ipynb)
+
 ![example-1](analysis/photo/Пропуски.png)
+
+![example-1](analysis/photo/ЦГД_Росгидромет_года.png)
 __________________________________________________
 ### 2. Корреляции
 [correlations](analysis/correlations.ipynb)
