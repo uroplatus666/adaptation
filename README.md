@@ -4,3 +4,7 @@
 
 
 [Посмотреть веб-приложение](https://adaptation-bsvgjwiovzn6sm3afuq5co.streamlit.app/)
+
+
+### Обработка базы, визуализация атрибутов
+[base_process](analysis/base_process.ipynb)
