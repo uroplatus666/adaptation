@@ -3,7 +3,8 @@
 
 [Посмотреть веб-приложение](https://adaptation-bsvgjwiovzn6sm3afuq5co.streamlit.app/)
 
-
+![example-1](analysis/photo/altai.jpg)
+__________________________________________________
 ### 1. Обработка базы, визуализация атрибутов
 [base_process](analysis/base_process.ipynb)
 ![example-1](analysis/photo/Пропуски.png)
