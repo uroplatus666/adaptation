@@ -25,4 +25,4 @@
 [XLM-RoBERTa](analysis/XLM-RoBERTa.ipynb)
 
 ### 7. Верификация типа ОПЯ bart-large-mnli, FRIDA
-[base_process](analysis/bart-frida.ipynb)
+[bart-frid](analysis/bart-frida.ipynb)
