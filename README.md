@@ -9,8 +9,6 @@ __________________________________________________
 [base_process](analysis/base_process.ipynb)
 
 ![example-1](analysis/photo/Пропуски.png)
-
-                                 ![example-1](analysis/photo/ЦГД_Росгидромет_года.png)
 __________________________________________________
 ### 2. Корреляции
 [correlations](analysis/correlations.ipynb)
@@ -46,7 +44,7 @@ __________________________________________________
 ![example-1](analysis/photo/roberta.jpg)
 __________________________________________________
 ### 7. Верификация типа ОПЯ bart-large-mnli, FRIDA
-[bart-frid](analysis/bart-frida.ipynb)
+[bart-frida](analysis/bart-frida.ipynb)
 
 ![example-1](analysis/photo/frida.jpg)
 _________________________________________________
