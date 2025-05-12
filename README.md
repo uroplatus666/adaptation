@@ -30,7 +30,7 @@ __________________________________________________
 #### Классификация на 8 классов
 ![example-1](analysis/photo/RF-8.jpg)
 __________________________________________________
-### 5. Предсказание интенсивности сильного ветра по тексту новости с помощью fine-tuning модели bert-base-uncased
+### 5. Предсказание интенсивности сильного ветра по тексту новости с помощью fine-tuning модели [bert-base-uncased](https://huggingface.co/google-bert/bert-base-uncased)
 [intensity-BERT](analysis/intensity-BERT.ipynb)
 
 #### Классификация на 5 классов
@@ -38,12 +38,12 @@ __________________________________________________
 #### Классификация на 8 классов
 ![example-1](analysis/photo/bert-8.png)
 __________________________________________________
-### 6. Фильтрация новостей на информативность для БД ОПЯ с помощью transfer-learning модели XLM-RoBERTa
+### 6. Фильтрация новостей на информативность для БД ОПЯ с помощью transfer-learning модели [XLM-RoBERTa](https://huggingface.co/hannybal/disaster-twitter-xlm-roberta-al)
 [XLM-RoBERTa](analysis/XLM-RoBERTa.ipynb)
 
 ![example-1](analysis/photo/roberta.jpg)
 __________________________________________________
-### 7. Верификация типа ОПЯ bart-large-mnli, FRIDA
+### 7. Верификация типа ОПЯ [bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli), [FRIDA](https://huggingface.co/ai-forever/FRIDA)
 [bart-frida](analysis/bart-frida.ipynb)
 
 ![example-1](analysis/photo/frida.jpg)
