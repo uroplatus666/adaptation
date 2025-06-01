@@ -26,9 +26,9 @@ __________________________________________________
 [LDA-RF](analysis/LDA-RF.ipynb)
 
 #### Классификация на 5 классов
-![example-1](analysis/photo/RF-5.jpg)
+![example-1](analysis/photo/RF-5.png)
 #### Классификация на 8 классов
-![example-1](analysis/photo/RF-8.jpg)
+![example-1](analysis/photo/RF-8.png)
 __________________________________________________
 ### 5. Предсказание интенсивности сильного ветра по тексту новости с помощью fine-tuning модели [bert-base-uncased](https://huggingface.co/google-bert/bert-base-uncased)
 [intensity-BERT](analysis/intensity-BERT.ipynb)
